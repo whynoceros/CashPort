@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CashPort" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,126 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="passportBackground.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="7m3-gI-dNw">
+                                <rect key="frame" x="0.0" y="8" width="600" height="584"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-mJ-xmS">
+                                <rect key="frame" x="150" y="60" width="300" height="480"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kOE-fg-oHK">
+                                        <rect key="frame" x="22" y="10" width="277" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9nC-7o-32C">
+                                                <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                                <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="United States Dollars (USD)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aS5-Wt-ZDg">
+                                                <rect key="frame" x="94" y="0.0" width="183" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="equalCentering" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fU2-fz-3V2">
+                                        <rect key="frame" x="13" y="91" width="277" height="17"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="4,567" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9z-SB-xgl">
+                                                <rect key="frame" x="0.0" y="0.0" width="41" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" red="1" green="0.1185407213" blue="0.1209751671" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Argentina Pesos (ARG)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQh-oh-IDm">
+                                                <rect key="frame" x="126" y="0.0" width="151" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" red="1" green="0.1185407213" blue="0.1209751671" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bL6-FI-ks4">
+                                        <rect key="frame" x="14" y="142" width="269" height="29"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVY-82-CME">
+                                                <rect key="frame" x="0.0" y="0.0" width="145" height="29"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                                <state key="normal" title="Set FROM Currency">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idI-Ip-j0Z">
+                                                <rect key="frame" x="145" y="0.0" width="124" height="29"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                                <state key="normal" title="Set TO Currency">
+                                                    <color key="titleColor" red="1" green="0.1185407213" blue="0.1209751671" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="=" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4S3-OJ-xEm">
+                                        <rect key="frame" x="131" y="24" width="38" height="73"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="61"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYD-bn-Sdz">
+                                        <rect key="frame" x="0.0" y="265" width="300" height="216"/>
+                                        <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7r-e2-G4g">
+                                        <rect key="frame" x="101" y="214" width="97" height="29"/>
+                                        <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
+                                        <state key="normal" title="CONVERT">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.59732214650000004" green="0.73403495249999995" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="kOE-fg-oHK" secondAttribute="trailing" constant="8" id="1Dg-oh-GE2"/>
+                                    <constraint firstAttribute="trailing" secondItem="fU2-fz-3V2" secondAttribute="trailing" constant="8" id="6f7-Qc-Jqz"/>
+                                    <constraint firstItem="kOE-fg-oHK" firstAttribute="leading" secondItem="5Pq-mJ-xmS" secondAttribute="leading" constant="8" id="7vq-BI-34M"/>
+                                    <constraint firstAttribute="trailing" secondItem="bL6-FI-ks4" secondAttribute="trailing" constant="12" id="Gdr-8p-3rT"/>
+                                    <constraint firstItem="R7r-e2-G4g" firstAttribute="centerX" secondItem="5Pq-mJ-xmS" secondAttribute="centerX" id="JxC-SB-Bji"/>
+                                    <constraint firstItem="bL6-FI-ks4" firstAttribute="centerX" secondItem="5Pq-mJ-xmS" secondAttribute="centerX" id="V0Z-wu-zPx"/>
+                                    <constraint firstItem="HYD-bn-Sdz" firstAttribute="top" secondItem="R7r-e2-G4g" secondAttribute="bottom" constant="20" id="ZYq-Xn-V8D"/>
+                                    <constraint firstAttribute="bottom" secondItem="HYD-bn-Sdz" secondAttribute="bottom" id="cW2-cx-RRk"/>
+                                    <constraint firstItem="fU2-fz-3V2" firstAttribute="leading" secondItem="5Pq-mJ-xmS" secondAttribute="leading" constant="8" id="vmp-7z-8fm"/>
+                                    <constraint firstItem="bL6-FI-ks4" firstAttribute="leading" secondItem="5Pq-mJ-xmS" secondAttribute="leading" constant="12" id="zDr-5c-3uO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="7m3-gI-dNw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1KV-vf-MEf"/>
+                            <constraint firstItem="5Pq-mJ-xmS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Axn-tQ-aQt"/>
+                            <constraint firstItem="7m3-gI-dNw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LUz-N5-i4p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7m3-gI-dNw" secondAttribute="trailing" id="WOJ-uP-Tao"/>
+                            <constraint firstItem="5Pq-mJ-xmS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Wsw-z3-kpd"/>
+                            <constraint firstItem="7m3-gI-dNw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fUe-q7-ZVd"/>
+                            <constraint firstItem="7m3-gI-dNw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="jFN-DZ-rRm"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="passportBackground.jpg" width="1190" height="595"/>
+    </resources>
 </document>
