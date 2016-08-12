@@ -1,8 +1,7 @@
 //
-//  CoreDataStack.swift
+//  DataController.swift
 //
-//  Created by Pasan Premaratne on 6/15/16.
-//  Copyright © 2016 Treehouse. All rights reserved.
+//  Created by Gabriel Nadel on 8/11/16.
 //
 
 import Foundation
@@ -78,17 +77,19 @@ public class DataController: NSObject {
         return success
     }
     
-    public func getAllEntities(entityName: String) throws -> [AnyObject]? {
-        let entityRequest = NSFetchRequest(entityName: entityName)
-        var entityArray : [AnyObject] = []
+    func getAllCurrencies() -> [Currency] {
+        let entityRequest = NSFetchRequest(entityName: "Currency")
+        var entityArray : [Currency] = []
         do {
         
-        entityArray = try managedObjectContext.executeFetchRequest(entityRequest) as! [AnyObject]
+        entityArray = try managedObjectContext.executeFetchRequest(entityRequest) as! [Currency]
         return entityArray
             
         } catch let error as NSError {
-        return nil
+        //Handle Error
+        return entityArray
         }
+        
     }
 }
 
