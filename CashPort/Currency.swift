@@ -20,7 +20,7 @@ static let identifier = "Currency"
    
     var pickerName : String {
     get{
-       return "\(fullName) (\(code))"
+       return "\(fullName!) (\(code!))"
     }
         }
 }

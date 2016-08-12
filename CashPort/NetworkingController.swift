@@ -50,13 +50,25 @@ class NetworkingController: NSObject{
                             let currencyFetch = NSFetchRequest(entityName: "Currency")
                             currencyFetch.predicate = NSPredicate(format: "code == %@", rate.0)
                             let currencyArray = try self.context.executeFetchRequest(currencyFetch) as! [Currency]
+                            do{
                             //Set usdRate for currency object
                             currencyArray[0].usdRate = try Double(json: rate.1)
-                            try self.context.save()
+                            print("rate: \(rate)")
+                            do{
+                                try self.context.save()
+                            }
+                            catch {
+                                print("try Double(json: rate.1) failed: \(error)")
+                            }
+                            }
+                            catch{
+                                print("error fetching")
+                            }
                         } catch {
                             fatalError("Failed to fetch employees: \(error)")
                         }
                     }
+                    print("finishedRatesLoop")
                 }catch {
                     print("Error with Json: \(error)")
                 }
@@ -65,7 +77,7 @@ class NetworkingController: NSObject{
         task.resume()
     }
     
-    func downladFullNames(){
+    func downladFullNames(completion: (result: String) -> Void){
         
         //Fetch and delete all existing currencies, could implement different architecture if we wanted to store historical data in the future.
         //Given that you always want the newest, safest data for currencies - or none at all - a full delete seemed least likely to present the user with a false, outdated or mismatched rates
@@ -102,9 +114,7 @@ class NetworkingController: NSObject{
                     }
                     self.success = true
                     
-                    dispatch_sync(dispatch_get_main_queue(), {
-                        self.downladExchangeRates()
-                        })
+                    completion(result:"completed")
                     
                 }catch {
                     self.success = false

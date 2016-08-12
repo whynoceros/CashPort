@@ -70,6 +70,7 @@ public class DataController: NSObject {
         var success = false
         do {
             try persistentStoreCoordinator.executeRequest(deleteRequest, withContext: managedObjectContext)
+            self.saveContext()
             success = true
         } catch let error as NSError {
            success = false
