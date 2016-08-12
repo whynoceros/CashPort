@@ -3,7 +3,7 @@
 //  CashPort
 //
 //  Created by Gabriel Nadel on 8/9/16.
-//  Copyright © 2016 Treehouse. All rights reserved.
+//
 //
 
 import Foundation
@@ -17,8 +17,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var fromNameLabel: UILabel!
     @IBOutlet weak var toNameLabel: UILabel!
     @IBOutlet weak var toAmountLabel: UILabel!
-    var fromRate = -99.9
-    var toRate = -99.9
+    var fromRate: Double = -99.9
+    var toRate: Double = -99.9
     
     
     let networkingController = NetworkingController()
@@ -41,21 +41,20 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBAction func setFromCurrency(){
         self.fromNameLabel.text = self.currencyArray[self.pickerView.selectedRowInComponent(0)].pickerName
         
-        self.fromRate = self.currencyArray[self.pickerView.selectedRowInComponent(0)].usdRate!
+        self.fromRate = Double(self.currencyArray[self.pickerView.selectedRowInComponent(0)].usdRate!)
         
     }
     
     @IBAction func setToCurrency(){
         self.toNameLabel.text = self.currencyArray[self.pickerView.selectedRowInComponent(0)].pickerName
-        self.toRate = self.currencyArray[self.pickerView.selectedRowInComponent(0)].usdRate!
+        self.toRate = Double(self.currencyArray[self.pickerView.selectedRowInComponent(0)].usdRate!)
     }
     
     @IBAction func convertCurrency(){
         
         let fromAmount = Double(self.fromAmountField.text!)
-        var toAmount : Double = (toRate / fromRate) * fromAmount
-        self.toAmountLabel.text = toAmount
-        
+        let toAmount = ((self.toRate / self.fromRate) * fromAmount!)
+        self.toAmountLabel.text = String(format: "%.2f", toAmount)
         
     }
     
@@ -99,7 +98,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     */
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        //Insert
+        //No need for this currenty, setTo and setFrom buttons handle the work
     }
+
+ 
 }
 

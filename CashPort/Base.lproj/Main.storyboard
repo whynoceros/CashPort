@@ -41,16 +41,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select a TO Currency" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQh-oh-IDm">
-                                        <rect key="frame" x="56" y="132" width="189" height="22"/>
+                                        <rect key="frame" x="0.0" y="132" width="300" height="22"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <color key="textColor" red="1" green="0.1185407213" blue="0.1209751671" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="1" height="-1"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4,567" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9z-SB-xgl">
-                                        <rect key="frame" x="124" y="155" width="51" height="22"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" red="1" green="0.1185407213" blue="0.1209751671" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -92,10 +84,10 @@
                                             <action selector="setToCurrency" destination="BYZ-38-t0r" eventType="touchUpInside" id="vrO-Xd-jGF"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tzr-0d-09x">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Tzr-0d-09x">
                                         <rect key="frame" x="86" y="14" width="126" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7r-e2-G4g">
                                         <rect key="frame" x="75" y="209" width="150" height="30"/>
@@ -109,6 +101,14 @@
                                             <action selector="convertCurrency" destination="BYZ-38-t0r" eventType="touchUpInside" id="ti0-qs-4fR"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9z-SB-xgl">
+                                        <rect key="frame" x="50" y="162" width="200" height="22"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="1" green="0.1185407213" blue="0.1209751671" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="1" height="-1"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.59732214650000004" green="0.73403495249999995" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -125,6 +125,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fromAmountField" destination="Tzr-0d-09x" id="f4L-GV-kaz"/>
                         <outlet property="fromNameLabel" destination="aS5-Wt-ZDg" id="FgN-P0-jJr"/>
                         <outlet property="pickerView" destination="HYD-bn-Sdz" id="xHL-rK-mhZ"/>
                         <outlet property="toAmountLabel" destination="U9z-SB-xgl" id="De3-a3-FUw"/>
