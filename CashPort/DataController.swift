@@ -79,16 +79,18 @@ public class DataController: NSObject {
     }
     
     func getAllCurrencies() -> [Currency] {
-        let entityRequest = NSFetchRequest(entityName: "Currency")
-        var entityArray : [Currency] = []
+        let currencyRequest = NSFetchRequest(entityName: "Currency")
+        let sortByFullName = NSSortDescriptor(key: "fullName", ascending:true)
+        currencyRequest.sortDescriptors = [sortByFullName]
+        var currencyArray : [Currency] = []
         do {
         
-        entityArray = try managedObjectContext.executeFetchRequest(entityRequest) as! [Currency]
-        return entityArray
+        currencyArray = try managedObjectContext.executeFetchRequest(currencyRequest) as! [Currency]
+        return currencyArray
             
         } catch let error as NSError {
         //Handle Error
-        return entityArray
+        return currencyArray
         }
         
     }

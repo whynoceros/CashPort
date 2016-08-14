@@ -17,6 +17,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var fromNameLabel: UILabel!
     @IBOutlet weak var toNameLabel: UILabel!
     @IBOutlet weak var toAmountLabel: UILabel!
+    @IBOutlet weak var loadingView: UIView!
+    
     var fromRate: Double = -99.9
     var toRate: Double = -99.9
     
@@ -30,10 +32,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         // Do any additional setup after loading the view, typically from a nib.
         self.pickerView.delegate = self
         
+        showLoadingScreen()
+        
         refreshData(){_ in
             self.currencyArray = DataController.sharedInstance.getAllCurrencies()
             dispatch_async(dispatch_get_main_queue()) {
                 self.pickerView.reloadAllComponents()
+                self.hideLoadingScreen()
             }       
     }
     }
@@ -52,6 +57,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @IBAction func convertCurrency(){
         
+        //Add check for any negatives/nils, return alert message, refresh btn
+        
         let fromAmount = Double(self.fromAmountField.text!)
         let toAmount = ((self.toRate / self.fromRate) * fromAmount!)
         self.toAmountLabel.text = String(format: "%.2f", toAmount)
@@ -64,14 +71,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func refreshData(completion: (result: String) -> Void){
-        //TODO - add loading screen, with "Success" and "Warning" messages and flow
         
         self.networkingController.downladFullNames(){_ in 
             self.networkingController.downladExchangeRates()
             completion(result:"completed")
-        }
-        
-        }
+            }
+    }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -86,19 +91,31 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let pickerLabel = UILabel()
         pickerLabel.textColor = UIColor.whiteColor()
         pickerLabel.text = String("   " + self.currencyArray[row].pickerName)
-        pickerLabel.font = UIFont(name: "Arial-BoldMT", size: 15)
+        pickerLabel.font = UIFont(name: "Kohinoor Bangla", size: 15)
         pickerLabel.textAlignment = NSTextAlignment.Left
         pickerLabel
         return pickerLabel
     }
-    /*
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.currencyArray[row].pickerName
-    }
-    */
+
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         //No need for this currenty, setTo and setFrom buttons handle the work
+    }
+    
+    func showLoadingScreen() -> Void {
+        
+        self.loadingView.alpha = 1
+        self.loadingView.hidden = false
+
+    }
+    
+    func hideLoadingScreen() -> Void {
+        
+        UIView.animateWithDuration(0.75, delay: 1.0, options: .CurveEaseInOut, animations: {
+            self.loadingView.alpha = 0},
+            completion: { finished in
+                    self.loadingView.hidden = true })
+        
     }
 
  

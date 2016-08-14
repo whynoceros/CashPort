@@ -28,7 +28,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select a FROM Currency" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aS5-Wt-ZDg">
                                         <rect key="frame" x="0.0" y="52" width="300" height="20"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="18"/>
                                         <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -42,7 +42,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select a TO Currency" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQh-oh-IDm">
                                         <rect key="frame" x="0.0" y="132" width="300" height="22"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="18"/>
                                         <color key="textColor" red="1" green="0.1185407213" blue="0.1209751671" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -53,9 +53,10 @@
                                         <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1V-hP-DgI">
-                                        <rect key="frame" x="220" y="337" width="72" height="25"/>
+                                        <rect key="frame" x="220" y="331" width="72" height="23"/>
                                         <color key="backgroundColor" red="0.59732214650000004" green="0.73403495249999995" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <inset key="contentEdgeInsets" minX="3" minY="0.0" maxX="3" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
                                         <state key="normal" title="set FROM">
                                             <color key="titleColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -69,9 +70,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCG-26-9yv">
-                                        <rect key="frame" x="220" y="379" width="72" height="25"/>
+                                        <rect key="frame" x="220" y="385" width="72" height="23"/>
                                         <color key="backgroundColor" red="0.59732214650000004" green="0.73403495249999995" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
                                         <state key="normal" title="set TO">
                                             <color key="titleColor" red="1" green="0.1185407213" blue="0.1209751671" alpha="1" colorSpace="calibratedRGB"/>
@@ -103,7 +104,7 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9z-SB-xgl">
                                         <rect key="frame" x="50" y="162" width="200" height="22"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="18"/>
                                         <color key="textColor" red="1" green="0.1185407213" blue="0.1209751671" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -111,6 +112,25 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.59732214650000004" green="0.73403495249999995" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OMX-1H-uxb">
+                                <rect key="frame" x="150" y="60" width="300" height="480"/>
+                                <subviews>
+                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z2T-Px-w3D">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="480"/>
+                                        <color key="backgroundColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Downloading most recent hourly exchange rates..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NK2-5G-5pg">
+                                        <rect key="frame" x="24" y="199" width="252" height="82"/>
+                                        <color key="backgroundColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="shadowOffset" width="-2" height="2"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -121,12 +141,15 @@
                             <constraint firstAttribute="trailingMargin" secondItem="7m3-gI-dNw" secondAttribute="trailing" id="WOJ-uP-Tao"/>
                             <constraint firstItem="5Pq-mJ-xmS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Wsw-z3-kpd"/>
                             <constraint firstItem="7m3-gI-dNw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fUe-q7-ZVd"/>
+                            <constraint firstItem="OMX-1H-uxb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gFP-mN-7zu"/>
                             <constraint firstItem="7m3-gI-dNw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="jFN-DZ-rRm"/>
+                            <constraint firstItem="OMX-1H-uxb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mfX-jM-lh9"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="fromAmountField" destination="Tzr-0d-09x" id="f4L-GV-kaz"/>
                         <outlet property="fromNameLabel" destination="aS5-Wt-ZDg" id="FgN-P0-jJr"/>
+                        <outlet property="loadingView" destination="OMX-1H-uxb" id="fkc-El-3e5"/>
                         <outlet property="pickerView" destination="HYD-bn-Sdz" id="xHL-rK-mhZ"/>
                         <outlet property="toAmountLabel" destination="U9z-SB-xgl" id="De3-a3-FUw"/>
                         <outlet property="toNameLabel" destination="RQh-oh-IDm" id="O9V-6D-ZO6"/>
