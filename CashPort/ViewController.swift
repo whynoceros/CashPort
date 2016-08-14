@@ -32,6 +32,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         super.viewDidLoad()
         
         self.pickerView.delegate = self
+        addDoneButtonOnKeyboard()
         refreshDataAndUI()
     }
     
@@ -129,6 +130,27 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             completion: { finished in
                     self.loadingView.hidden = true })
     }
-
+    
+    func addDoneButtonOnKeyboard()
+    {
+        let navBar = UINavigationBar(frame: CGRectMake(0, 0, self.view.frame.width, 44))
+        navBar.barStyle = UIBarStyle.BlackTranslucent;
+        navBar.backgroundColor = UIColor.lightGrayColor();
+        navBar.alpha = 1.0;
+        //replace viewWidth with view controller width
+        let navItem = UINavigationItem()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(self.closeKeyboard))
+        navItem.rightBarButtonItem = doneButton
+        
+        navBar.pushNavigationItem(navItem, animated: false)
+        
+        self.fromAmountField.inputAccessoryView = navBar
+        
+    }
+    
+    func closeKeyboard()
+    {
+        self.fromAmountField.resignFirstResponder()
+    }
 }
 
