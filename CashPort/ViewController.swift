@@ -17,6 +17,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var fromNameLabel: UILabel!
     @IBOutlet weak var toNameLabel: UILabel!
     @IBOutlet weak var toAmountLabel: UILabel!
+    @IBOutlet weak var lastUpdatedLabel: UILabel!
     @IBOutlet weak var loadingView: UIView!
     
     var fromRate: Double = -99.9
@@ -29,18 +30,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         self.pickerView.delegate = self
-        
-        showLoadingScreen()
-        
-        refreshData(){_ in
-            self.currencyArray = DataController.sharedInstance.getAllCurrencies()
-            dispatch_async(dispatch_get_main_queue()) {
-                self.pickerView.reloadAllComponents()
-                self.hideLoadingScreen()
-            }       
-    }
+        refreshDataAndUI()
     }
     
     @IBAction func setFromCurrency(){
@@ -63,6 +55,28 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let toAmount = ((self.toRate / self.fromRate) * fromAmount!)
         self.toAmountLabel.text = String(format: "%.2f", toAmount)
         
+    }
+    
+    @IBAction func refreshDataAndUI(){
+        showLoadingScreen()
+        refreshData(){_ in
+            self.currencyArray = DataController.sharedInstance.getAllCurrencies()
+            dispatch_async(dispatch_get_main_queue()) {
+                self.pickerView.reloadAllComponents()
+                self.hideLoadingScreen()
+                self.setLastUpdatedLabel()
+            }
+        }
+    }
+    
+    func setLastUpdatedLabel(){
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm aa"
+        let date = NSDate()
+        //dateFormatter.dateFormat = "HH:mm"
+        let dateString = dateFormatter.stringFromDate(date)
+        print("time: \(dateString)")
+        self.lastUpdatedLabel.text = "   Last Updated:\n   \(dateString)"
     }
     
     override func didReceiveMemoryWarning() {
@@ -106,7 +120,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         self.loadingView.alpha = 1
         self.loadingView.hidden = false
-
     }
     
     func hideLoadingScreen() -> Void {
@@ -115,9 +128,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             self.loadingView.alpha = 0},
             completion: { finished in
                     self.loadingView.hidden = true })
-        
     }
 
- 
 }
 
