@@ -50,7 +50,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @IBAction func convertCurrency(){
         
-        //Add check for any negatives/nils, return alert message, refresh btn
+        let isValid = inputValidation()
+        
+        if !isValid {
+            return
+        }
         
         let fromAmount = Double(self.fromAmountField.text!)
         let toAmount = ((self.toRate / self.fromRate) * fromAmount!)
@@ -68,6 +72,47 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                 self.setLastUpdatedLabel()
             }
         }
+    }
+    
+    func inputValidation() -> Bool{
+        
+        let alert = UIAlertController(title: nil, message: "Invalid Input", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Ok logic here")
+        }))
+        var message = "Invalid Input"
+        var invalidCount = 0
+        
+        if self.fromRate <= 0 {
+            invalidCount += 1
+            message = "Please select a 'FROM' currency"
+        }
+        
+        if self.toRate <= 0 {
+            invalidCount += 1
+            message = "Please select a 'TO' currency"
+        }
+        
+        if self.toNameLabel.text == self.fromNameLabel.text {
+            invalidCount += 1
+            message = "It looks like your 'TO' and FROM currencies are the same."
+        }
+        
+        if Double(self.fromAmountField.text!) <= 0 {
+            invalidCount += 1
+            message = "Please enter a valid amount (no negatives, commas or symbols"
+        }
+        
+        if invalidCount > 1 {
+            message = "Please enter a valid amount and select both 'TO' and 'FROM' currencies"
+        }
+
+        if invalidCount > 0 {
+            alert.message = message
+            presentViewController(alert, animated: true, completion: nil)
+            return false
+        }
+            return true
     }
     
     func setLastUpdatedLabel(){
