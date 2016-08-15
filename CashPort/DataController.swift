@@ -46,8 +46,8 @@ public class DataController: NSObject {
     
     public lazy var managedObjectContext: NSManagedObjectContext = {
         let coordinator = self.persistentStoreCoordinator
-        let managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-        
+        let managedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+
         managedObjectContext.persistentStoreCoordinator = coordinator
         
         return managedObjectContext
