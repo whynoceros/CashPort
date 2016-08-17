@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0BD69A02BA5C55DD144112A7 /* Pods_CashPort.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F182F46F50DE80989D27121D /* Pods_CashPort.framework */; };
 		5D08198C1D624F2E00E46151 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D08198B1D624F2E00E46151 /* DataController.swift */; };
+		5D08198E1D62730300E46151 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D08198D1D62730300E46151 /* Favorite.swift */; };
 		5D6123281D5A49C0008CB36C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6123271D5A49C0008CB36C /* AppDelegate.swift */; };
 		5D61232A1D5A49C0008CB36C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6123291D5A49C0008CB36C /* ViewController.swift */; };
 		5D61232D1D5A49C0008CB36C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D61232B1D5A49C0008CB36C /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		326EF7F471584C0BD9DB7588 /* Pods_CashPortTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CashPortTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		500F4AF8ACCC94D2EF30ADC5 /* Pods-CashPortTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CashPortTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CashPortTests/Pods-CashPortTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5D08198B1D624F2E00E46151 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		5D08198D1D62730300E46151 /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		5D6123241D5A49C0008CB36C /* CashPort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashPort.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D6123271D5A49C0008CB36C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D6123291D5A49C0008CB36C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5D08198F1D64E3DF00E46151 /* CoreDataEntities */ = {
+			isa = PBXGroup;
+			children = (
+				5D61234F1D5A9967008CB36C /* Currency.swift */,
+				5D08198D1D62730300E46151 /* Favorite.swift */,
+			);
+			name = CoreDataEntities;
+			sourceTree = "<group>";
+		};
 		5D61231B1D5A49C0008CB36C = {
 			isa = PBXGroup;
 			children = (
@@ -111,17 +122,17 @@
 			isa = PBXGroup;
 			children = (
 				5D61234A1D5A4AB7008CB36C /* Resources */,
+				5D08198F1D64E3DF00E46151 /* CoreDataEntities */,
 				5D6123271D5A49C0008CB36C /* AppDelegate.swift */,
-				5D6123291D5A49C0008CB36C /* ViewController.swift */,
+				5D08198B1D624F2E00E46151 /* DataController.swift */,
 				5D61234D1D5A5069008CB36C /* NetworkingController.swift */,
+				5D6123291D5A49C0008CB36C /* ViewController.swift */,
 				5D61232B1D5A49C0008CB36C /* Main.storyboard */,
 				5D6480111D5CED6500945CD9 /* TODO's.rtf */,
 				5D6123311D5A49C0008CB36C /* Assets.xcassets */,
 				5D6123331D5A49C0008CB36C /* LaunchScreen.storyboard */,
 				5D6123361D5A49C0008CB36C /* Info.plist */,
 				5D61232E1D5A49C0008CB36C /* CashPort.xcdatamodeld */,
-				5D61234F1D5A9967008CB36C /* Currency.swift */,
-				5D08198B1D624F2E00E46151 /* DataController.swift */,
 			);
 			path = CashPort;
 			sourceTree = "<group>";
@@ -357,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D61232A1D5A49C0008CB36C /* ViewController.swift in Sources */,
+				5D08198E1D62730300E46151 /* Favorite.swift in Sources */,
 				5D08198C1D624F2E00E46151 /* DataController.swift in Sources */,
 				5D6123501D5A9967008CB36C /* Currency.swift in Sources */,
 				5D61234E1D5A5069008CB36C /* NetworkingController.swift in Sources */,
