@@ -222,9 +222,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func userDataAlert(){
+        dispatch_async(dispatch_get_main_queue()) {
         let alert = UIAlertController(title: "Warning", message: "Data did not update properly. Please close and relaunch the app.", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: { (action: UIAlertAction!) in
         }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     }
 }
 

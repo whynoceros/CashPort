@@ -39,6 +39,7 @@ public class DataController: NSObject {
             
             let wrappedError = NSError(domain: "com.teamtreehouse.CoreDataError", code: 9999, userInfo: userInfo)
             print("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
+            self.postAlertNotification()
             abort()
         }
         
@@ -60,6 +61,7 @@ public class DataController: NSObject {
                 try managedObjectContext.save()
             } catch let error as NSError {
                 print("Unresolved error \(error), \(error.userInfo)")
+                self.postAlertNotification()
             }
         }
     }
@@ -75,6 +77,7 @@ public class DataController: NSObject {
             success = true
         } catch let error as NSError {
             print("Error deleting entities: \(error)")
+            self.postAlertNotification()
            success = false
         }
         return success
@@ -92,6 +95,7 @@ public class DataController: NSObject {
             
         } catch let error as NSError {
         print("Error fetching all currencies: \(error)")
+        self.postAlertNotification()
         return currencyArray
         }
         
@@ -107,6 +111,7 @@ public class DataController: NSObject {
         }
         catch let error as NSError {
             print("Error fetching currency by code and name: \(error)")
+            self.postAlertNotification()
             return nil
         }
     }
@@ -120,6 +125,7 @@ public class DataController: NSObject {
             
         } catch let error as NSError {
             print("Error getting all favorites: \(error)")
+            self.postAlertNotification()
             return favoriteArray
         }
     }
@@ -174,6 +180,10 @@ public class DataController: NSObject {
             DataController.sharedInstance.saveContext()
             return
         }
+    }
+    
+    func postAlertNotification(){
+        self.notificationCenter.postNotificationName("UserDataAlert", object: nil)
     }
 }
 

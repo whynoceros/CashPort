@@ -33,6 +33,7 @@ class NetworkingController: NSObject{
        let success = DataController.sharedInstance.deleteAllInstances("Currency")
         
         if !success {
+            self.postAlertNotification()
             print("Failure to delete current cureencies from CoreData")
             return
         }
@@ -62,12 +63,12 @@ class NetworkingController: NSObject{
                     }
                     completion(result:"completed")
                 }catch {
-                    
+                self.postAlertNotification()
                     print("Failure to parse JSON or create new Core Data entities")
                 }
             }
             else {
-                self.notificationCenter.postNotificationName("UserDataAlert", object: nil)
+                self.postAlertNotification()
                 print("Bad response from server. Status code: \(statusCode)")
             }
         }
@@ -107,13 +108,21 @@ class NetworkingController: NSObject{
             }
             else {
                 print("Bad response from server. Status code: \(statusCode)")
+                self.postAlertNotification()
             }
             }
             catch let error{
-                    print("Failure to parse JSON or fetch from CoreData. Error Description: \(error)")
+                print("Failure to parse JSON or fetch from CoreData. Error Description: \(error)")
+                self.postAlertNotification()
                 }
         }
         task.resume()
     }
 
+    func postAlertNotification(){
+        self.notificationCenter.postNotificationName("UserDataAlert", object: nil)
+    }
+    
    }
+
+
