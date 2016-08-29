@@ -24,7 +24,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var fromRate: Double = -99.9
     var toRate: Double = -99.9
     
-    let networkingController = NetworkingController()
+    var networkingController = NetworkingController()
     var currencyArray: [Currency] = []
     
     override func viewDidLoad() {
