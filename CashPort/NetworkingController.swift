@@ -30,7 +30,7 @@ class NetworkingController: NSObject{
         //Delete all existing currencies then fetch, could implement different architecture if we wanted to store historical data in the future.
         //Given that you always want the newest, safest data for currencies - or none at all - a full delete seemed least likely to present the user with a false, outdated or mismatched rates
         
-       let success = DataController.sharedInstance.deleteAllInstances("Currency")
+       let success = DataController.sharedInstance.deleteAllCurrencies()
         
         if !success {
             self.postAlertNotification()
