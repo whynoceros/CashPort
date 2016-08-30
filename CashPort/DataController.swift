@@ -180,7 +180,7 @@ public class DataController: NSObject {
         if currentFavorites.count > 1 {
             //Extra Favorites have accumulated somehow, clear them out
             //Remove this safety check if extending to store list of favorites
-            DataController.sharedInstance.deleteAllInstances("Favorites")
+            DataController.sharedInstance.deleteAllFavorites()
             DataController.sharedInstance.saveContext()
             currentFavorites = DataController.sharedInstance.getAllFavorites()
             print("System is accumulating Favorites, this shouldn't happen under current architecture.")
