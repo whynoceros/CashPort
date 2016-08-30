@@ -66,21 +66,44 @@ public class DataController: NSObject {
         }
     }
     
-    public func deleteAllInstances(entityName: String) -> Bool {
-        //Can be used to delete all instances of any entity
-        let fetchRequest = NSFetchRequest(entityName: entityName)
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        var success = false
+   public func deleteAllFavorites() -> Bool {
+        let favoritesRequest = NSFetchRequest(entityName: "Favorite")
+        var favoritesArray : [Favorite] = []
+        
         do {
-            try persistentStoreCoordinator.executeRequest(deleteRequest, withContext: managedObjectContext)
-            self.saveContext()
-            success = true
+            
+            favoritesArray = try managedObjectContext.executeFetchRequest(favoritesRequest) as! [Favorite]
+            for Favorite in favoritesArray{
+                managedObjectContext.deleteObject(Favorite)
+                saveContext()
+            }
+            return true
+            
         } catch let error as NSError {
-            print("Error deleting entities: \(error)")
+            print("Error fetching all currencies: \(error)")
             self.postAlertNotification()
-           success = false
+            return false
         }
-        return success
+    }
+    
+    public func deleteAllCurrencies() -> Bool {
+        let currencyRequest = NSFetchRequest(entityName: "Currency")
+        var currencyArray : [Currency] = []
+        
+        do {
+            
+            currencyArray = try managedObjectContext.executeFetchRequest(currencyRequest) as! [Currency]
+            for Currency in currencyArray{
+                managedObjectContext.deleteObject(Currency)
+                saveContext()
+            }
+            return true
+            
+        } catch let error as NSError {
+            print("Error fetching all currencies: \(error)")
+            self.postAlertNotification()
+            return false
+        }
     }
     
     func getAllCurrencies() -> [Currency] {
