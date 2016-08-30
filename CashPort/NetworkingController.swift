@@ -101,8 +101,10 @@ class NetworkingController: NSObject{
                             let currencyArray = try self.dataController.managedObjectContext.executeFetchRequest(currencyFetch) as! [Currency]
                         
                             //Set usdRate for currency object
+                            if currencyArray.count > 0 {
                             currencyArray[0].usdRate = try Double(json: rate.1)
                             self.dataController.saveContext()
+                                }
                             }
                 completion(result:"completed")
             }
